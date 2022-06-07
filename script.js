@@ -1,19 +1,22 @@
-//your code here
+//your code here!
+//solution
+let list = document.querySelector("#infi-list");
+console.log(list);
 
-function reset() {
-    for (i = 1; i <= 9; i++) {
-        const block = document.getElementById(`${i}`);
-        block.style.backgroundColor = "transparent";
-    }
+for(let i=1; i<=10; i++){
+  list.innerHTML += `<li>Item ${i}</li>`
 }
-  
-document.getElementById('reset_button').addEventListener('click', reset);
 
-document.getElementById('change_button').addEventListener('click', () => {
-    reset();
-    const blockId = document.getElementById("block_id").value;
-    const color = document.getElementById("colour_id").value;
-    // alert(colorId)
-    const block = document.getElementById(`${blockId}`);
-    block.style.backgroundColor = color;
-});
+let n = 10;
+
+list.addEventListener("scroll", ()=>{
+  // console.log("used scrolled the list");
+  if(list.scrollHeight - list.scrollTop - list.clientHeight < 1){
+    // console.log("you reached the end");
+    list.innerHTML += `
+    <li>Item ${n+1}</li>
+    <li>Item ${n+2}</li>
+    `
+    n+=2;
+  }
+})

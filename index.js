@@ -7,11 +7,11 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname));
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/main.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + "/main.html"));
+});
 //your code here
 app.post("/add", (req, res) => {
   const { a, b } = req.body;
